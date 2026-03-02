@@ -1,0 +1,166 @@
+language_name = "中文 🇨🇳"
+
+# --- MAIN MENU & WELCOME ---
+welcome_title = "🎰 <b>欢迎来到 Telegram 赌场和托管机器人！</b> 🎰"
+hello = "👋 您好 {first_name}！"
+welcome_desc = "🎲 体验赌场游戏的刺激，或通过我们的自动化托管系统保护您的交易安全。"
+ai_feature = "✨ 新功能：与我们的 <b>AI 助手</b> 聊天，解答任何问题或任务！"
+current_balance = "💰 当前余额：<b>{balance}</b>"
+choose_option = "选择下方选项开始："
+menu_owner_error = "此菜单不属于您。"
+banned_message = "您已被禁止使用。"
+maintenance_mode = "🛠️ <b>机器人维护中</b> 🛠️\n\n机器人目前正在进行计划维护。"
+
+# --- BUTTON LABELS ---
+btn_deposit = "📥 存款"
+btn_withdraw = "📤 提款"
+btn_games = "🎮 游戏"
+btn_more = "➕ 更多"
+btn_stats = "📊 统计"
+btn_settings = "⚙️ 设置"
+btn_admin = "👑 管理面板"
+btn_back = "🔙 返回"
+btn_cancel = "❌ 取消"
+btn_confirm = "✅ 确认"
+btn_accept = "✅ 接受"
+btn_decline = "❌ 拒绝"
+btn_cashout = "💸 提现"
+btn_play_bot = "🤖 人机对战"
+btn_play_player = "👤 玩家对战"
+
+# --- DEPOSIT & WITHDRAWAL ---
+dep_disabled = "管理员暂时禁用了存款功能。"
+dep_active_session = "您已有一个待处理的存款会话！\n存款地址：<code>{address}</code>\n存款方式：{method}\n过期时间：{time_remaining}"
+dep_menu_title = "💰 <b>选择存款方式：</b>\n\n⚠️ 您将获得一次性唯一存款地址，有效期为 1 小时。\n💵 最低存款：等值 <b>${min_deposit}</b>"
+dep_usdt_menu = "💵 <b>选择 USDT 链：</b>\n\n选择要在哪个区块链上存入 USDT："
+dep_confirmed = "💰 <b>存款已确认！</b>\n\n金额：<b>${amount}</b>\n方式：{method}\n新余额：<b>${balance}</b>"
+dep_expired = "⏰ 您的存款会话已过期。"
+wd_disabled = "❌ <b>提款已禁用</b>\n\n管理员暂时禁用了提款功能。"
+wd_restricted = "❌ <b>提款已禁用</b>\n\n您的账户目前被限制提款。"
+wd_no_address = "💳 <b>未设置提款地址</b>\n\n请先在设置中设置您的 USDT-BEP20 提款地址。"
+wd_request_title = "💸 <b>提款请求</b>\n\n请输入您要提取的金额（单位：{currency}）。\n输入 'all' 提取全部余额。"
+wd_success = "✅ <b>提款请求已提交</b>\n\n请求 ID：<code>{id}</code>\n金额：{amount}\n地址：<code>{address}</code>\n\n等待管理员审核。"
+wd_approved = "✅ <b>提款已批准</b>\n\n金额：{amount}\n交易哈希 (TXID)：<code>{txid}</code>"
+wd_cancelled = "❌ <b>提款已取消</b>\n\n您的提款请求已被取消，资金已退回。"
+
+# --- GENERIC GAME MESSAGES ---
+insufficient_balance = "❌ 余额不足。请充值以继续。"
+invalid_amount = "无效金额。请输入有效数字或 'all'。"
+min_bet_error = "此游戏的最低下注额为 {amount}"
+max_bet_error = "此游戏的最大下注额为 {amount}"
+game_started = "🎮 游戏开始！"
+game_ended = "🎮 游戏结束！"
+won_msg = "🎉 您赢了 {amount}！"
+lost_msg = "😔 您输了。祝下次好运！"
+not_your_game = "这不是您的游戏！"
+game_already_finished = "此游戏已结束。"
+
+# --- HOUSE GAMES ---
+bj_started = "🃏 <b>二十一点开始！</b> (ID: <code>{id}</code>)"
+bj_dealer_shows = "庄家亮牌：{card}"
+bj_your_hand = "您的手牌：{cards} (点数：{value})"
+bj_hit = "👊 要牌"
+bj_stand = "✋ 停牌"
+bj_double = "⬆️ 加倍"
+bj_bust = "💥 爆牌！您输了 ${amount}"
+bj_blackjack_win = "🎉 黑杰克！您赢了 ${amount}！"
+bj_dealer_bust = "🎉 庄家爆牌！您赢了 ${amount}！"
+bj_push = "🤝 平局！双方均为二十一点。赌注退回。"
+
+cf_started = "🪙 <b>抛硬币开始！</b> (ID: <code>{id}</code>)\n\n💰 下注：${amount}\n选择正面或反面！"
+cf_win = "🎉 <b>正确！</b> 硬币是 {result}！\n\n💰 当前奖金：<b>${win_amount}</b>\n🔥 连胜：{streak}"
+cf_lose = "❌ <b>错误！</b> 您选了 {pick}，但硬币是 {result}。"
+
+hl_started = "🎴 <b>高低扑克开始！</b>\n\n🃏 当前牌：<b>{card}</b>"
+hl_higher = "⬆️ 更高"
+hl_lower = "⬇️ 更低"
+hl_tie = "🔄 平局"
+hl_skip = "⏭️ 跳过"
+hl_correct = "🎉 <b>正确！</b> 下一张牌是 {card}！"
+hl_wrong = "❌ <b>错误！</b> 下一张牌是 {card}。"
+
+roul_usage = "用法：/roul <金额> <选择> (例如：/roul 1 red)"
+roul_result = "🎯 <b>轮盘结果</b>\n\n🎰 中奖号码：<b>{number}</b> {color}"
+
+dr_usage = "用法：/dr <金额> <选择> (例如：/dr 1 even)"
+dr_result = "🎲 <b>掷骰子结果</b>\n\n🎯 结果：<b>{result}</b>"
+
+tower_started = "🏗️ <b>攀塔游戏开始！</b>\n选择一个安全的砖块向上爬！"
+tower_safe = "✅ <b>安全！向上攀登...</b>"
+tower_collapse = "💥 <b>塔楼倒塌！</b>\n💣 您踩到了炸弹！"
+tower_complete = "🏆 <b>塔楼通关！</b>\n🎉 最大奖金：<b>${amount}</b>！"
+
+mines_started = "💣 <b>扫雷游戏开始！</b>\n点击按钮揭开地砖。"
+mines_safe = "✅ 安全！地砖 {cell} 是宝石。"
+mines_boom = "💥 <b>爆炸！</b> 您在地砖 {cell} 踩到了地雷。"
+mines_cashout = "💸 <b>提现！</b>\n您凭借 {picks} 次正确选择赢得了 <b>${amount}</b>！"
+
+keno_menu = "🎯 <b>基诺游戏</b>\n从下方的网格中选择 1 到 10 个号码。"
+keno_result = "🎯 <b>基诺结果</b>\n\n📌 您的号码：{picked}\n🎲 开奖号码：{drawn}\n✅ 匹配数：{matches}"
+
+limbo_usage = "用法：/lb <金额> <倍数>"
+limbo_result = "🚀 <b>林波结果</b>\n\n🎯 目标：<b>{target}x</b>\n🎲 结果：<b>{outcome}x</b>"
+
+slots_spinning = "🎰 正在旋转老虎机..."
+slots_result = "🎰 <b>老虎机结果</b>\n\n{result_text}"
+slots_jackpot = "🍀 大奖 - 幸运 777！"
+slots_triple = "🎉 三重匹配！"
+
+# --- PVP & GROUP GAMES ---
+pvp_challenge_created = "🎯 <b>创建 {game} 挑战</b>\n比赛 ID：<code>{id}</code>"
+pvp_new_request = "🎮 <b>新 {game} 比赛请求！</b>\n\n房主：{host}\n赌注：${amount}\n目标：先达到 {target} 分"
+pvp_match_started = "🎮 <b>比赛开始！</b>\n\n{player1} 对战 {player2}"
+pvp_turn = "<b>{player}，轮到你了！</b>\n发送 {rolls} 个 {emoji} 开始！"
+pvp_round_win = "🎉 {player} 赢得了这一轮！"
+pvp_final_win = "🏆 <b>{player} 赢得了比赛并获得 ${amount}！</b>"
+pvb_bot_rolling = "机器人正在投掷..."
+pvb_you_rolled = "您掷出了：{text} = <b>{total}</b>"
+
+# --- WALLET & STATS ---
+wallet_title = "💼 <b>您的钱包</b>"
+wallet_pnl = "📈 盈亏：<b>{amount}</b>"
+stats_title = "📊 <b>您的完整统计</b>"
+level_info = "🦄 <b>您的等级：{level} ({name})</b>"
+level_progress = "<b>距离等级 {next} 的进度：</b>"
+referral_title = "🤝 <b>您的推荐仪表板</b>"
+referral_link = "🔗 <b>您的链接：</b>\n<code>{link}</code>"
+
+# --- ESCROW SYSTEM ---
+escrow_new = "🛡️ <b>新托管交易</b>\n\n请输入以 USDT 计价的交易金额。"
+escrow_role = "请选择您的角色："
+escrow_details = "请提供交易详情（例如：'出售物品 X'）。"
+escrow_created = "🛡️ <b>新托管交易已创建</b>\n交易 ID：<code>{id}</code>\n分享此链接以加入："
+escrow_deposit_ask = "请将正好 <code>{amount}</code> USDT 存入以下地址。"
+escrow_secured = "✅ 存款已确认。资金已担保。请继续交易。"
+escrow_released = "✅ 交易完成！资金已发送给买家。"
+escrow_dispute = "🚨 交易 <code>{id}</code> 已开启争议。"
+
+# --- SETTINGS ---
+settings_title = "⚙️ <b>设置</b>"
+set_currency = "💱 <b>货币设置</b>\n选择您的首选货币。"
+set_lang = "🌍 <b>选择您的语言：</b>"
+set_address = "💳 <b>设置提款地址</b>\n请输入您的 USDT-BEP20 提款地址。"
+address_saved = "✅ <b>提款地址已保存！</b>"
+
+# --- GIFT CODES & BONUSES ---
+gift_claim = "使用命令：\n<code>/claim 您的代码</code>"
+gift_success = "🎉 成功！您已领取礼品代码并获得 ${amount}！"
+daily_claimed = "🎉 您已成功领取 ${amount} 的每日奖金！"
+daily_wait = "⏳ 您已经领取了每日奖金。请稍候。"
+rakeback_claim = "💰 您已领取 ${amount} 的返水。"
+
+# --- ADMIN PANEL ---
+admin_title = "👑 <b>管理仪表板</b> 👑"
+admin_stats = "📊 <b>机器人统计：</b>"
+admin_broadcast_start = "开始广播..."
+admin_broadcast_end = "广播结束。\n✅ 发送成功：{sent}\n❌ 发送失败：{failed}"
+admin_house_bal = "🏦 庄家余额已设置为 ${amount}。"
+
+# --- ERRORS & ALERTS ---
+error_general = "❌ 发生错误。请重试。"
+maintenance_alert = "🚫 机器人已停止运行。"
+only_owner = "这是仅限所有者的命令。"
+invalid_cmd = "❌ 命令未找到。"
+recovery_title = "🔐 <b>账户恢复令牌</b>"
+recovery_msg = "保存此令牌！这是恢复您账户的唯一方法。"
+recovery_success = "✅ <b>恢复成功！</b>\n欢迎回来！"

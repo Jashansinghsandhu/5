@@ -1,0 +1,166 @@
+language_name = "Français 🇫🇷"
+
+# --- MAIN MENU & WELCOME ---
+welcome_title = "🎰 <b>Bienvenue sur le Bot Casino & Escrow Telegram !</b> 🎰"
+hello = "👋 Bonjour {first_name} !"
+welcome_desc = "🎲 Vivez l'excitation des jeux de casino ou sécurisez vos transactions avec notre système Escrow automatisé."
+ai_feature = "✨ NOUVEAU : Discutez avec notre <b>Assistant IA</b> pour toute question ou tâche !"
+current_balance = "💰 Solde Actuel : <b>{balance}</b>"
+choose_option = "Choisissez une option ci-dessous pour commencer :"
+menu_owner_error = "Ce menu n'est pas pour vous."
+banned_message = "Vous avez été banni."
+maintenance_mode = "🛠️ <b>Bot en Maintenance</b> 🛠️\n\nLe bot est actuellement en maintenance programmée."
+
+# --- BUTTON LABELS ---
+btn_deposit = "📥 Dépôt"
+btn_withdraw = "📤 Retrait"
+btn_games = "🎮 Jeux"
+btn_more = "➕ Plus"
+btn_stats = "📊 Statistiques"
+btn_settings = "⚙️ Paramètres"
+btn_admin = "👑 Admin"
+btn_back = "🔙 Retour"
+btn_cancel = "❌ Annuler"
+btn_confirm = "✅ Confirmer"
+btn_accept = "✅ Accepter"
+btn_decline = "❌ Refuser"
+btn_cashout = "💸 Encaisser"
+btn_play_bot = "🤖 Jouer vs Bot"
+btn_play_player = "👤 Jouer vs Joueur"
+
+# --- DEPOSIT & WITHDRAWAL ---
+dep_disabled = "Les dépôts sont temporairement désactivés par l'administrateur."
+dep_active_session = "Vous avez déjà une session de dépôt en attente !\nAdresse : <code>{address}</code>\nMéthode : {method}\nExpire dans : {time_remaining}"
+dep_menu_title = "💰 <b>Choisir la méthode de dépôt :</b>\n\n⚠️ Vous recevrez une adresse unique à usage unique, valide 1 heure.\n💵 Dépôt minimum : équivalent de <b>${min_deposit}</b>"
+dep_usdt_menu = "💵 <b>Choisir la chaîne USDT :</b>\n\nChoisissez sur quelle blockchain déposer l'USDT :"
+dep_confirmed = "💰 <b>Dépôt Confirmé !</b>\n\nMontant : <b>${amount}</b>\nMéthode : {method}\nNouveau Solde : <b>${balance}</b>"
+dep_expired = "⏰ Votre session de dépôt a expiré."
+wd_disabled = "❌ <b>Retraits Désactivés</b>\n\nLes retraits sont temporairement désactivés par l'administrateur."
+wd_restricted = "❌ <b>Retraits Désactivés</b>\n\nVotre compte est restreint pour les retraits."
+wd_no_address = "💳 <b>Adresse de Retrait Non Définie</b>\n\nVeuillez d'abord définir votre adresse de retrait USDT-BEP20 dans les Paramètres."
+wd_request_title = "💸 <b>Demande de Retrait</b>\n\nVeuillez entrer le montant que vous souhaitez retirer en {currency}.\nTapez 'all' pour retirer tout votre solde."
+wd_success = "✅ <b>Demande de Retrait Soumise</b>\n\nID Demande : <code>{id}</code>\nMontant : {amount}\nAdresse : <code>{address}</code>\n\nEn attente de validation par l'admin."
+wd_approved = "✅ <b>Retrait Approuvé</b>\n\nMontant : {amount}\nTXID : <code>{txid}</code>"
+wd_cancelled = "❌ <b>Retrait Annulé</b>\n\nVotre demande de retrait a été annulée et les fonds retournés."
+
+# --- GENERIC GAME MESSAGES ---
+insufficient_balance = "❌ Solde insuffisant. Veuillez déposer pour continuer."
+invalid_amount = "Montant invalide. Veuillez entrer un nombre valide ou 'all'."
+min_bet_error = "La mise minimale pour ce jeu est de {amount}"
+max_bet_error = "La mise maximale pour ce jeu est de {amount}"
+game_started = "🎮 Jeu commencé !"
+game_ended = "🎮 Jeu terminé !"
+won_msg = "🎉 Vous avez gagné {amount} !"
+lost_msg = "😔 Vous avez perdu. Meilleure chance la prochaine fois !"
+not_your_game = "Ce n'est pas votre jeu !"
+game_already_finished = "Ce jeu est déjà terminé."
+
+# --- HOUSE GAMES ---
+bj_started = "🃏 <b>Blackjack Commencé !</b> (ID : <code>{id}</code>)"
+bj_dealer_shows = "Le croupier montre : {card}"
+bj_your_hand = "Votre main : {cards} (Valeur : {value})"
+bj_hit = "👊 Tirer"
+bj_stand = "✋ Rester"
+bj_double = "⬆️ Doubler"
+bj_bust = "💥 Sauté ! Vous perdez ${amount}"
+bj_blackjack_win = "🎉 Blackjack ! Vous gagnez ${amount} !"
+bj_dealer_bust = "🎉 Le croupier saute ! Vous gagnez ${amount} !"
+bj_push = "🤝 Égalité ! Les deux ont un blackjack. Mise retournée."
+
+cf_started = "🪙 <b>Pile ou Face !</b> (ID : <code>{id}</code>)\n\n💰 Mise : ${amount}\nChoisissez Pile ou Face !"
+cf_win = "🎉 <b>Correct !</b> La pièce est tombée sur {result} !\n\n💰 Gain actuel : <b>${win_amount}</b>\n🔥 Série : {streak}"
+cf_lose = "❌ <b>Faux !</b> Vous avez choisi {pick}, mais c'était {result}."
+
+hl_started = "🎴 <b>Jeu Plus Haut / Plus Bas !</b>\n\n🃏 Carte Actuelle : <b>{card}</b>"
+hl_higher = "⬆️ Plus Haut"
+hl_lower = "⬇️ Plus Bas"
+hl_tie = "🔄 Égalité"
+hl_skip = "⏭️ Passer"
+hl_correct = "🎉 <b>Correct !</b> La carte suivante est {card} !"
+hl_wrong = "❌ <b>Faux !</b> La carte suivante était {card}."
+
+roul_usage = "Utilisation : /roul <montant> <choix> (ex : /roul 1 red)"
+roul_result = "🎯 <b>Résultat Roulette</b>\n\n🎰 Numéro Gagnant : <b>{number}</b> {color}"
+
+dr_usage = "Utilisation : /dr <montant> <choix> (ex : /dr 1 even)"
+dr_result = "🎲 <b>Résultat Dés</b>\n\n🎯 Résultat : <b>{result}</b>"
+
+tower_started = "🏗️ <b>Jeu de la Tour !</b>\nChoisissez une case sûre pour grimper !"
+tower_safe = "✅ <b>Sûr ! On grimpe...</b>"
+tower_collapse = "💥 <b>La Tour s'effondre !</b>\n💣 Vous avez touché une bombe !"
+tower_complete = "🏆 <b>Tour Complétée !</b>\n🎉 GAIN MAXIMUM : <b>${amount}</b> !"
+
+mines_started = "💣 <b>Jeu des Mines !</b>\nCliquez sur les boutons pour révéler les cases."
+mines_safe = "✅ Sûr ! La case {cell} était une gemme."
+mines_boom = "💥 <b>Boum !</b> Vous avez touché une mine sur la case {cell}."
+mines_cashout = "💸 <b>Encaissé !</b>\nVous avez gagné <b>${amount}</b> avec {picks} choix corrects !"
+
+keno_menu = "🎯 <b>JEU KENO</b>\nChoisissez 1 à 10 numéros dans la grille ci-dessous."
+keno_result = "🎯 <b>RÉSULTAT KENO</b>\n\n📌 Vos Numéros : {picked}\n🎲 Tirage : {drawn}\n✅ Correspondances : {matches}"
+
+limbo_usage = "Utilisation : /lb <montant> <multiplicateur>"
+limbo_result = "🚀 <b>RÉSULTAT LIMBO</b>\n\n🎯 Cible : <b>{target}x</b>\n🎲 Résultat : <b>{outcome}x</b>"
+
+slots_spinning = "🎰 Les machines tournent..."
+slots_result = "🎰 <b>Résultat Slots</b>\n\n{result_text}"
+slots_jackpot = "🍀 JACKPOT - Triple 7 !"
+slots_triple = "🎉 Triple Correspondance !"
+
+# --- PVP & GROUP GAMES ---
+pvp_challenge_created = "🎯 <b>Créer Défi {game}</b>\nID Match : <code>{id}</code>"
+pvp_new_request = "🎮 <b>Nouvelle demande de match {game} !</b>\n\nHôte : {host}\nMise : ${amount}\nCible : Premier à {target} points"
+pvp_match_started = "🎮 <b>MATCH COMMENCÉ !</b>\n\n{player1} vs {player2}"
+pvp_turn = "<b>{player}, à votre tour !</b>\nEnvoyez {rolls} {emoji} pour commencer !"
+pvp_round_win = "🎉 {player} gagne cette manche !"
+pvp_final_win = "🏆 <b>{player} gagne le match et remporte ${amount} !</b>"
+pvb_bot_rolling = "Le bot lance..."
+pvb_you_rolled = "Vous avez lancé : {text} = <b>{total}</b>"
+
+# --- WALLET & STATS ---
+wallet_title = "💼 <b>Votre Portefeuille</b>"
+wallet_pnl = "📈 P&L : <b>{amount}</b>"
+stats_title = "📊 <b>Vos Statistiques Complètes</b>"
+level_info = "🦄 <b>Votre Niveau : {level} ({name})</b>"
+level_progress = "<b>Progression vers Niveau {next} :</b>"
+referral_title = "🤝 <b>Votre Tableau de Bord Parrainage</b>"
+referral_link = "🔗 <b>Votre Lien :</b>\n<code>{link}</code>"
+
+# --- ESCROW SYSTEM ---
+escrow_new = "🛡️ <b>Nouvelle Transaction Escrow</b>\n\nVeuillez entrer le montant de la transaction en USDT."
+escrow_role = "Veuillez sélectionner votre rôle :"
+escrow_details = "Veuillez fournir les détails de la transaction (ex : 'Vente objet X')."
+escrow_created = "🛡️ <b>Nouvelle Transaction Escrow Créée</b>\nID Transaction : <code>{id}</code>\nPartagez ce lien pour rejoindre :"
+escrow_deposit_ask = "Veuillez déposer exactement <code>{amount}</code> USDT à l'adresse ci-dessous."
+escrow_secured = "✅ Dépôt confirmé. Fonds sécurisés. Procédez à la transaction."
+escrow_released = "✅ Transaction terminée ! Fonds envoyés à l'acheteur."
+escrow_dispute = "🚨 Un litige a été ouvert pour la transaction <code>{id}</code>."
+
+# --- SETTINGS ---
+settings_title = "⚙️ <b>Paramètres</b>"
+set_currency = "💱 <b>Paramètres Devise</b>\nChoisissez votre devise préférée."
+set_lang = "🌍 <b>Sélectionnez votre langue :</b>"
+set_address = "💳 <b>Définir l'Adresse de Retrait</b>\nVeuillez entrer votre adresse de retrait USDT-BEP20."
+address_saved = "✅ <b>Adresse de Retrait Enregistrée !</b>"
+
+# --- GIFT CODES & BONUSES ---
+gift_claim = "Utilisez la commande :\n<code>/claim VOTRE_CODE</code>"
+gift_success = "🎉 Succès ! Vous avez réclamé un code cadeau et reçu ${amount} !"
+daily_claimed = "🎉 Vous avez réclamé avec succès votre bonus quotidien de {amount} !"
+daily_wait = "⏳ Vous avez déjà réclamé votre bonus quotidien. Veuillez patienter."
+rakeback_claim = "💰 Vous avez réclamé ${amount} de rakeback."
+
+# --- ADMIN PANEL ---
+admin_title = "👑 <b>Tableau de Bord Admin</b> 👑"
+admin_stats = "📊 <b>Stats du Bot :</b>"
+admin_broadcast_start = "Démarrage de la diffusion..."
+admin_broadcast_end = "Diffusion terminée.\n✅ Envoyés : {sent}\n❌ Échoués : {failed}"
+admin_house_bal = "🏦 Solde de la Banque défini à ${amount}."
+
+# --- ERRORS & ALERTS ---
+error_general = "❌ Une erreur s'est produite. Veuillez réessayer."
+maintenance_alert = "🚫 Le bot est actuellement arrêté."
+only_owner = "Cette commande est réservée au propriétaire."
+invalid_cmd = "❌ Commande non trouvée."
+recovery_title = "🔐 <b>Jeton de Récupération de Compte</b>"
+recovery_msg = "Sauvegardez ce jeton ! C'est le SEUL moyen de récupérer votre compte."
+recovery_success = "✅ <b>Récupération Réussie !</b>\nBon retour !"
