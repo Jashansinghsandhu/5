@@ -630,7 +630,7 @@ def get_most_recent_active_game(user_id: int, game_type: str):
         return None
     return sorted(active, key=lambda g: g['timestamp'], reverse=True)[0]
 
-
+def get_total_balance_usd(user_id: int) -> float:
     """Get total portfolio value in USD across all coins."""
     wallet = ensure_wallet_dict(user_id)
     total = 0.0
