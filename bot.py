@@ -358,26 +358,66 @@ _price_cache_timestamp = {}
 PRICE_CACHE_TTL = 60  # seconds
 
 # ========================================
+# Premium Custom Emoji IDs (Telegram Bot API 9.4)
+# ========================================
+EMOJI_DEPOSIT       = '5443127283898405358'  # 📥 Inbox / Deposit
+EMOJI_WITHDRAW      = '5904725269083592656'  # 💸 Flying Money
+EMOJI_GAMES         = '5319247469165433798'  # 🎮 Game Controller
+EMOJI_MORE          = '5231200819986047254'  # 📊 Bar Chart
+EMOJI_SETTINGS      = '5902065430196918507'  # ⚙️ Gear
+EMOJI_ADMIN         = '5897736927796269145'  # 🤖 Robot
+EMOJI_LIGHTNING     = '5456140674028019486'  # ⚡ Lightning
+EMOJI_STAR          = '5902434346412809097'  # ⭐️ Star
+EMOJI_DOLLAR        = '5409048419211682843'  # 💵 Dollar Banknote
+EMOJI_WALLET        = '5424976816530014958'  # 👛 Wallet / Purse
+EMOJI_CHECKMARK     = '5206607081334906820'  # ✔️ Checkmark
+EMOJI_BOMB          = '5469654973308476699'  # 💣 Bomb
+EMOJI_DICE          = '5260547274957672345'  # 🎲 Dice
+EMOJI_DART          = '5310278924616356636'  # 🎯 Dart
+EMOJI_BOWLING       = '5370853837689070338'  # 🎳 Bowling
+EMOJI_SOCCER        = '5375159220280762629'  # ⚽ Soccer
+EMOJI_FLYING_MONEY  = EMOJI_WITHDRAW  # 💸 Flying Money
+EMOJI_RED_CIRCLE    = '5904364603499879557'  # 🔴 Red Circle
+EMOJI_WAVING_HAND   = '5904734666472037015'  # 👋 Waving Hand
+EMOJI_GREEN_CHECK   = '5904720115122837688'  # ✅ Green Check Button
+EMOJI_MONEY_BAG     = '5902373911927987238'  # 💰 Money Bag
+EMOJI_DOLLAR_SIGN   = '5902414005447698749'  # 💲 Heavy Dollar Sign
+EMOJI_ROBOT         = EMOJI_ADMIN  # 🤖 Robot
+EMOJI_PUSHPIN       = '5397782960512444700'  # 📌 Pushpin
+EMOJI_SHOPPING      = '5453901475648390219'  # 🛍️ Shopping Bags
+EMOJI_FIRE          = '5424972470023104089'  # 🔥 Fire
+EMOJI_RIGHT_ARROW   = '5416117059207572332'  # ➡️ Right Arrow
+EMOJI_ENVELOPE      = '5253742260054409879'  # ✉️ Envelope
+EMOJI_SNOWFLAKE     = '5449449325434266744'  # ❄️ Snowflake
+EMOJI_PARTY         = '5461151367559141950'  # 🎉 Party Popper
+EMOJI_CALENDAR      = '5413879192267805083'  # 🗓️ Calendar
+EMOJI_POINT_LEFT    = '5220079633533250496'  # 👈 Point Left
+EMOJI_HANDSHAKE     = '5904220988383436077'  # 🤝 Handshake
+EMOJI_BAR_CHART     = EMOJI_MORE  # 📊 Bar Chart
+EMOJI_CANCEL        = '5927205879530131073'  # 🚫 Cancel / No Entry
+
+# ========================================
 # Button Style Helper Functions (Telegram Bot API 9.4)
 # ========================================
 
-def apply_button_style(button, style):
+def apply_button_style(button, style, emoji_id=None):
     """
-    Apply style to InlineKeyboardButton using dict injection workaround.
-    
-    Telegram Bot API 9.4 supports button styles but python-telegram-bot library
-    doesn't have native support yet. This workaround manually injects the style
-    parameter into the button dictionary.
-    
+    Apply style (and optionally a custom emoji icon) to InlineKeyboardButton using
+    dict injection workaround for Telegram Bot API 9.4 fields not yet natively
+    supported by python-telegram-bot.
+
     Args:
         button: InlineKeyboardButton object
-        style: One of 'success' (green), 'danger' (red), or 'primary' (blue)
-    
+        style: One of 'success' (green), 'primary' (blue), or 'danger' (red)
+        emoji_id: Optional Telegram Premium custom emoji ID string for the button icon
+
     Returns:
-        dict: Button dictionary with style parameter injected
+        dict: Button dictionary with style (and icon_custom_emoji_id) injected
     """
     btn_dict = button.to_dict()
     btn_dict['style'] = style
+    if emoji_id:
+        btn_dict['icon_custom_emoji_id'] = str(emoji_id)
     return btn_dict
 
 def create_styled_keyboard(keyboard_array):
@@ -6181,8 +6221,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         bot_username = (await context.bot.get_me()).username
         keyboard = [
             [
-                apply_button_style(InlineKeyboardButton("💎 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary'),  # BLUE
-                apply_button_style(InlineKeyboardButton("💸 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success')  # GREEN
+                apply_button_style(InlineKeyboardButton("📥 Deposit", url=f"https://t.me/{bot_username}?start=deposit"), 'primary', EMOJI_DEPOSIT),  # BLUE
+                apply_button_style(InlineKeyboardButton("💸 Withdraw", url=f"https://t.me/{bot_username}?start=withdraw"), 'success', EMOJI_WITHDRAW)  # GREEN
             ],
         ]
         
@@ -6213,24 +6253,24 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         # Row 1: Deposit & Withdraw with styles
         [
-            apply_button_style(InlineKeyboardButton("💎 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("📥 Deposit", callback_data="main_deposit"), 'primary', EMOJI_DEPOSIT),  # BLUE
+            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success', EMOJI_WITHDRAW)  # GREEN
         ],
         # Row 2: Games & More with styles
         [
-            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary', EMOJI_GAMES),  # BLUE
+            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'primary', EMOJI_MORE)  # BLUE
         ],
         # Row 3: Settings
     ]
 
     # Add Settings button only in DMs
     if update.effective_chat.type == "private":
-        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'danger', EMOJI_SETTINGS)])  # RED
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
-        keyboard.append([InlineKeyboardButton(get_text("admin_panel", user_lang), callback_data="admin_dashboard").to_dict()])
+        keyboard.append([apply_button_style(InlineKeyboardButton(get_text("admin_panel", user_lang), callback_data="admin_dashboard"), 'danger', EMOJI_ADMIN)])
 
     # Get total wagers for display
     stats = user_stats.get(user.id, {})
@@ -6258,11 +6298,11 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             keyboard.append(links_row_2)
     
     welcome_text = (
-        "🐱 <b>Welcome to Casino ⚡</b>\n\n"
-        "⭐️ Casino - the best online mini-games platform on Telegram\n"
-        f"💵 <b>Balance:</b> {formatted_balance}\n"
+        "🐱 <b>Welcome to Casino <tg-emoji emoji-id=\"5456140674028019486\">⚡</tg-emoji></b>\n\n"
+        "<tg-emoji emoji-id=\"5902434346412809097\">⭐️</tg-emoji> Casino - the best online mini-games platform on Telegram\n"
+        f"<tg-emoji emoji-id=\"5409048419211682843\">💵</tg-emoji> <b>Balance:</b> {formatted_balance}\n"
         f"👑 <b>Wagers:</b> {formatted_wagers}\n\n"
-        "🎮 Choose an option below to get started!"
+        "<tg-emoji emoji-id=\"5319247469165433798\">🎮</tg-emoji> Choose an option below to get started!"
     )
 
     # Create styled keyboard using helper function
@@ -6638,13 +6678,13 @@ async def start_command_inline(query, context):
     keyboard = [
         # Row 1: Deposit & Withdraw
         [
-            apply_button_style(InlineKeyboardButton("💎 Deposit", callback_data="main_deposit"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success')  # GREEN
+            apply_button_style(InlineKeyboardButton("📥 Deposit", callback_data="main_deposit"), 'primary', EMOJI_DEPOSIT),  # BLUE
+            apply_button_style(InlineKeyboardButton("💸 Withdraw", callback_data="main_withdraw"), 'success', EMOJI_WITHDRAW)  # GREEN
         ],
         # Row 2: Games & More
         [
-            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary'),  # BLUE
-            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'danger')  # RED
+            apply_button_style(InlineKeyboardButton("🎮 Games", callback_data="main_games"), 'primary', EMOJI_GAMES),  # BLUE
+            apply_button_style(InlineKeyboardButton("📊 More", callback_data="main_more"), 'primary', EMOJI_MORE)  # BLUE
         ],
         # Row 3: Settings
     ]
@@ -6652,14 +6692,14 @@ async def start_command_inline(query, context):
     # Add Settings button only in DMs - with better error handling
     try:
         if query.message and query.message.chat and query.message.chat.type == "private":
-            keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+            keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'danger', EMOJI_SETTINGS)])  # RED
     except AttributeError:
         # Default to adding settings if we can't determine chat type
-        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'success')])  # GREEN
+        keyboard.append([apply_button_style(InlineKeyboardButton("⚙️ Settings", callback_data="main_settings"), 'danger', EMOJI_SETTINGS)])  # RED
 
     # Row 5: Admin Dashboard (only for admin)
     if is_admin(user.id):
-        keyboard.append([InlineKeyboardButton("🔧 Admin Panel", callback_data="admin_dashboard").to_dict()])
+        keyboard.append([apply_button_style(InlineKeyboardButton(get_text("admin_panel", user_lang), callback_data="admin_dashboard"), 'danger', EMOJI_ADMIN)])
 
     # Create links row - Only show in DMs to avoid spam in groups
     try:
@@ -6687,11 +6727,11 @@ async def start_command_inline(query, context):
             keyboard.append(links_row_2)
 
     welcome_text = (
-        "🐱 <b>Welcome to Casino ⚡</b>\n\n"
-        "⭐️ Casino - the best online mini-games platform on Telegram\n"
-        f"💵 <b>Balance:</b> {formatted_balance}\n"
+        "🐱 <b>Welcome to Casino <tg-emoji emoji-id=\"5456140674028019486\">⚡</tg-emoji></b>\n\n"
+        "<tg-emoji emoji-id=\"5902434346412809097\">⭐️</tg-emoji> Casino - the best online mini-games platform on Telegram\n"
+        f"<tg-emoji emoji-id=\"5409048419211682843\">💵</tg-emoji> <b>Balance:</b> {formatted_balance}\n"
         f"👑 <b>Wagers:</b> {formatted_wagers}\n\n"
-        "🎮 Choose an option below to get started!"
+        "<tg-emoji emoji-id=\"5319247469165433798\">🎮</tg-emoji> Choose an option below to get started!"
     )
 
     # Create styled keyboard using helper function
